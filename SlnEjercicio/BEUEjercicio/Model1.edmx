@@ -35,6 +35,16 @@
           <Property Name="unidad" Type="nchar" MaxLength="1" />
           <Property Name="idmatricula" Type="int" />
         </EntityType>
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="id_club" />
+          </Key>
+          <Property Name="id_club" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="campus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lider" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
         <EntityType Name="Materia">
           <Key>
             <PropertyRef Name="idmateria" />
@@ -119,6 +129,7 @@
           <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Calificacion" EntityType="Self.Calificacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Club" EntityType="Self.Club" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Matricula" EntityType="Self.Matricula" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -166,6 +177,7 @@
             <End Role="Materia" EntitySet="Materias" />
             <End Role="Matricula" EntitySet="Matriculas" />
           </AssociationSet>
+          <EntitySet Name="Clubs" EntityType="DBModel.Club" />
         </EntityContainer>
         <EntityType Name="Alumno">
           <Key>
@@ -285,6 +297,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="id_club" />
+          </Key>
+          <Property Name="id_club" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="campus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lider" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -356,6 +378,17 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clubs">
+            <EntityTypeMapping TypeName="DBModel.Club">
+              <MappingFragment StoreEntitySet="Club">
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="lider" ColumnName="lider" />
+                <ScalarProperty Name="campus" ColumnName="campus" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_club" ColumnName="id_club" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

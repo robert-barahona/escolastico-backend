@@ -44,6 +44,8 @@ public partial class Entities : DbContext
 
     public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
+    public virtual DbSet<Club> Clubs { get; set; }
+
 }
 
 }

@@ -62,6 +62,9 @@
     <Compile Include="Calificacion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Club.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Materia.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -89,6 +92,7 @@
     </Compile>
     <Compile Include="Transactions\AlumnoBLL.cs" />
     <Compile Include="Transactions\AreaBLL.cs" />
+    <Compile Include="Transactions\ClubBLL.cs" />
     <Compile Include="Transactions\MateriaBLL.cs" />
     <Compile Include="Transactions\MatriculaBLL.cs" />
   </ItemGroup>
